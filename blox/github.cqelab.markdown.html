@@ -8,12 +8,12 @@
 {{ $title := $block.content.title | emojify | $page.RenderString }}
 {{ $text := $block.content.text | emojify | $page.RenderString | safeHTML }}
 
-<div class="flex flex-col items-center max-w-screen-lg mx-auto gap-3 justify-center">
+<div class="flex flex-col items-center max-w-screen-md mx-auto gap-3 justify-center">
 
   <div class="mb-6 text-3xl font-bold text-gray-900 dark:text-white">
     {{ $title }}
   </div>
 
   {{/* We use DIV rather than P to support `prose` class and multiple paragraphs */}}
-  {{ with $text }}<div class="prose prose-slate lg:prose-xl dark:prose-invert max-w-screen-sm leading-none">{{ . }}</div>{{ end }}
+  {{ with $text }}<div class="prose prose-slate lg:prose-xl dark:prose-invert max-w-screen-md leading-none">{{ . }}</div>{{ end }}
 </div>
