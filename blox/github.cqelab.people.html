@@ -52,26 +52,18 @@
         {{ $link = .RelPermalink }}
         {{ end }}
         <div>
-          <div class="group relative h-[17.5rem] transform overflow-hidden rounded-4xl bg-transparent">
-            <div class="absolute bottom-6 left-0 right-4 top-0 rounded-4xl transition duration-300 group-hover:scale-95 xl:right-6"></div>
-            <div class="absolute inset-0 bg-transparent">
+          <div class="group relative h-[17.5rem] transform rounded-4xl bg-transparent">
+            <div class="absolute inset-0 bg-transparent h-full w-full object-cover transition duration-300 group-hover:scale-110">
               {{ $image := "" }}
               {{ if $avatar }}
                 {{ $avatar_image := $avatar.Fill "280x280 Center webp" }}
                 <img class="avatar rounded-full bg-white dark:bg-gray-800 p-1"
                      src="{{ $avatar_image.RelPermalink }}" alt="{{ .Title }}"
-                     width="{{ $avatar_image.Width }}" height="{{ $avatar_image.Height }}">
+                     width="{{ $avatar_image.Width }}" height="{{ $avatar_image.Height }}"
+                     fetchpriority="high"
+                     style="color:transparent">
               {{ end }}
 
-              {{ if $image }}
-                <a href="{{$person.Page.RelPermalink}}">
-                  <img src="{{ $image.RelPermalink }}" alt="Avatar" width="{{$image.Width}}" height="{{$image.Height}}" loading="lazy"
-                      class="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-110"
-                      data-nimg="1"
-                      decoding="async"
-                      fetchpriority="high"
-                      style="color:transparent">
-              {{ end }}
               </a>
             </div>
           </div>
